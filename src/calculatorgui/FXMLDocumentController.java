@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -141,7 +142,43 @@ public class FXMLDocumentController implements Initializable {
             data = Float.parseFloat(display.getText());
             operation = 4; //Division
             display.setText("");
+        }else if (event.getSource() == back) {
+            String str = display.getText();
+            str = str.substring(0, str.length()-1);
+            display.setText(str);
+        }else if (event.getSource() == mod) {
+            data = Float.parseFloat(display.getText());
+            operation = 5; //Modulo
+            display.setText("");
+        }else if (event.getSource() == signo) {
+            data = Float.parseFloat(display.getText());
+            String str = display.getText();
+            if (data>0){
+                str = "-"+str;
+            }else{
+                str = str.substring(1, str.length());
+            }
+            display.setText(str);
+        }else if (event.getSource() == coma) {
+            String str = display.getText();
+            str = str +".";
+            display.setText(str);
+        }else if (event.getSource() == tenPow) {
+            System.out.println("Boton");
+            data = Float.parseFloat(display.getText());
+            operation = 6; //10x
+        }else if (event.getSource() == sqrt) {
+            data = Float.parseFloat(display.getText());
+            operation = 7; //raiz
+        }else if (event.getSource() == nFact) {
+            data = Float.parseFloat(display.getText());
+            operation = 8; //fact
+        }else if (event.getSource() == log) {
+            data = Float.parseFloat(display.getText());
+            operation = 9; //log
         }
+        
+        
         else if (event.getSource() == equals) {
             float secondOperand = Float.parseFloat(display.getText());
             switch (operation) {
@@ -156,8 +193,57 @@ public class FXMLDocumentController implements Initializable {
                     display.setText(String.valueOf(ans));break;
                 case 4: //Div
                     ans = 0f;
-                    ans = Calculadora.div(data, secondOperand);                    
+                    ans = Calculadora.div(data, secondOperand);
+                    if (ans>0){
+                        display.setText(String.valueOf(ans));break;
+                    }else {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Error");
+                        alert.setHeaderText("No es posbile realizar esta operacion");
+                        alert.setContentText("División en cero");
+                        alert.showAndWait();
+                        display.setText("");
+                    }
+                case 5: //Mod
+                    ans = 0f;
+                    ans = Calculadora.mod(data, secondOperand);                    
                     display.setText(String.valueOf(ans));break;
+                case 6: //10x
+                    System.out.println("FML");
+                    ans = 0f;
+                    ans = Calculadora.pow(data, secondOperand); 
+                    System.out.println(ans);
+                    display.setText(String.valueOf(ans));break;
+                case 7: //raiz
+                    ans = 0f;
+                    ans = Calculadora.raiz(data);
+                    if (ans>0){
+                        display.setText(String.valueOf(ans));break;
+                    }else {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Error");
+                        alert.setHeaderText("No es posbile realizar esta operacion");
+                        alert.setContentText("Respuesta no real \n intente con numeros positivos");
+                        alert.showAndWait();
+                        display.setText("");
+                    }
+                case 8: //fact
+                    ans = 0f;
+                    ans = Calculadora.fac(data);                    
+                    display.setText(String.valueOf(ans));break;
+                case 9: //log
+                    ans = 0f;
+                    ans = Calculadora.log(data);
+                    if (ans>0){
+                        display.setText(String.valueOf(ans));break;
+                    }else {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Error");
+                        alert.setHeaderText("No es posbile realizar esta operacion");
+                        alert.setContentText("Respuesta no real \n intente con numeros positivos");
+                        alert.showAndWait();
+                        display.setText("");
+                    }
             }
         }
     }
