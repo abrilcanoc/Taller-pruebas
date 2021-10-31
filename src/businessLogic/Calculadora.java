@@ -37,7 +37,11 @@ public class Calculadora {
     }
     public static float mod(float a, float b)
     {
+        if(a*b > 0)
         return a%b;
+        else{
+            return b + (a%b);
+        }
     }
     public static float pow(float a, float b)
     {   

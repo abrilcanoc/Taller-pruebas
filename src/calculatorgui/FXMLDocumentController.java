@@ -164,7 +164,6 @@ public class FXMLDocumentController implements Initializable {
             str = str +".";
             display.setText(str);
         }else if (event.getSource() == tenPow) {
-            System.out.println("Boton");
             data = Float.parseFloat(display.getText());
             operation = 6; //10x
         }else if (event.getSource() == sqrt) {
@@ -209,10 +208,8 @@ public class FXMLDocumentController implements Initializable {
                     ans = Calculadora.mod(data, secondOperand);                    
                     display.setText(String.valueOf(ans));break;
                 case 6: //10x
-                    System.out.println("FML");
                     ans = 0f;
                     ans = Calculadora.pow(data, secondOperand); 
-                    System.out.println(ans);
                     display.setText(String.valueOf(ans));break;
                 case 7: //raiz
                     ans = 0f;
