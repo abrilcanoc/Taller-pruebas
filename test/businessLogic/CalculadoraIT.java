@@ -238,4 +238,179 @@ public class CalculadoraIT {
         
     }
     
+//-------------------------------------
+    @Test
+    public void testLogByZero(){
+        System.out.println("Logaritmo de 0");
+        float a = 0;
+        float expResult = -1;
+        float result = Calculadora.log(a);
+        assertEquals(expResult,result,0.0);
+    }
+    
+    @Test
+    public void testLogByNegative(){
+        System.out.println("Logaritmo de un numero negativo");
+        float a = -1;
+        float expResult = -1;
+        float result = Calculadora.log(a);
+        assertEquals(expResult,result,0.0);
+    }
+    
+    
+    @Test
+    public  void testMultiplyByZero(){
+        System.out.println("Multiplicar por cero");
+        float a = 5F;
+        float b = 0F;
+        float expResult = 0F;
+        float result = Calculadora.multiply(a, b);
+        assertEquals(expResult, result,0.0);
+    }   
+    
+    @Test
+    public  void testFacByZero(){
+        System.out.println("Factorial de cero");
+        float a = 0F;
+        float expResult = 1F;
+        float result = Calculadora.fac(a);
+        assertEquals(expResult, result,0.0);                
+    }
+    
+    @Test
+    public  void testFactByNegative(){
+        System.out.println("Factorial de un negativo");
+        float a = -1.0F;
+        float expResult = 1F;
+        float result = Calculadora.fac(a);
+        assertEquals(expResult, result,0.0);                
+    }
+    
+    @Test
+    public  void testDivByNegative(){
+        System.out.println("Dividir por un negativo");
+        float a = 5F;
+        float b = -5F;
+        float expResult = -1;
+        float result = Calculadora.div(a, b);
+        assertEquals(expResult, result,0.0);        
+    }    
+
+    @Test
+    public  void testMultiplyByDecimal(){
+        System.out.println("Multiplicar por un decimal");
+        float a=5;
+        float b=0.5F;
+        float expResult = 2.5F;
+        float result = Calculadora.multiply(a, b);
+        assertEquals(expResult, result,0.0);
+    }    
+    
+    @Test
+    public  void testMultiplyByNegativeDecimal(){
+        System.out.println("Multiplicar por un decimal negativo");
+        float a=5;
+        float b=-0.5F;
+        float expResult = -2.5F;
+        float result = Calculadora.multiply(a, b);
+        assertEquals(expResult, result,0.0);
+    }    
+
+    
+    @Test
+    public  void testDivideByDecimal(){
+        System.out.println("Dividir por un decimal");
+        float a=5;
+        float b=0.5F;
+        float expResult = 10;
+        float result = Calculadora.div(a, b);
+        assertEquals(expResult, result,0.0);
+    }
+    
+    
+    @Test
+    public  void testDivideByNegativeDecimal(){
+        System.out.println("Dividir por un decimal negativo");
+        float a = 5;
+        float b = -0.5F;
+        float expResult = -10;
+        float result = Calculadora.div(a, b);
+        assertEquals(expResult, result,0.0);
+    }
+    
+    @Test
+    public  void testLogByDecimal(){
+        System.out.println("Logaritmo de un decimal");
+        float a = 0.5F;
+        float expResult = (float) Math.log10(a);
+        float result = Calculadora.log(a);
+        assertEquals(expResult, result,0.0);
+    }
+
+    @Test
+    public  void testLogByDecimalNegative(){
+        System.out.println("Logaritmo de un decimal negativo");
+        float a = -0.5F;
+        float expResult = -1;
+        float result = Calculadora.log(a);
+        assertEquals(expResult, result,0.0);
+    }
+
+
+    @Test
+    public  void testAddDecimal(){
+        System.out.println("Sumar un decimal a un entero");
+        float a = 0.5F;
+        float b = 5;
+        float expResult = 5.5F;        
+        float result = Calculadora.add(a, b);
+        assertEquals(expResult, result,0.0);
+    }
+            
+    @Test
+    public  void testAddDecimalNegative(){
+        System.out.println("Sumar un decimal a un entero negativo");
+        float a = -0.5F;
+        float b = 5;
+        float expResult = 4.5F;        
+        float result = Calculadora.add(a, b);
+        assertEquals(expResult, result,0.0);
+    }    
+
+
+    @Test
+    public  void testDivNegativeByNegative(){
+        System.out.println("Dividir un negativo por un negativo");
+        float a = -5;
+        float b = -5;
+        float expResult = 1;        
+        float result = Calculadora.div(a, b);        
+        assertEquals(expResult, result,0.0);
+    }    
+    
+    @Test
+    public  void testMultytNegativeByNegative(){
+        System.out.println("Multiplicar un negativo con un negativo");
+        float a = -5;
+        float b = -5;
+        float expResult = 25;        
+        float result = Calculadora.multiply(a, b);        
+        assertEquals(expResult, result,0.0);
+    }       
+    
+    /*
+    
+    
+    @Test
+    public  void test(){
+        System.out.println("");
+        assertEquals(expResult, result,0.0);
+    }
+    
+    
+    */
+    
+    
+    
+    
 }

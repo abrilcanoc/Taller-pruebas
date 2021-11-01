@@ -65,8 +65,8 @@ public class Calculadora {
     public static float log(float a)
     {   
         if (a>0)
-        return (float)Math.log10(a);
+            return (float)Math.log10(a);
         else
-        return -1;
+            return -1;
     }
 }
