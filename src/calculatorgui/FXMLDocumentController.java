@@ -6,6 +6,7 @@
 package calculatorgui;
 
 import businessLogic.Calculadora;
+import static java.lang.Float.NaN;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -205,8 +206,18 @@ public class FXMLDocumentController implements Initializable {
                     }
                 case 5: //Mod
                     ans = 0f;
-                    ans = Calculadora.mod(data, secondOperand);                    
-                    display.setText(String.valueOf(ans));break;
+                    ans = Calculadora.mod(data, secondOperand);
+                    System.out.println(ans);
+                    if(!Float.isNaN(ans)){
+                        display.setText(String.valueOf(ans));break;
+                    }
+                    else{
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setTitle("Error");
+                        alert.setHeaderText("No es posbile realizar esta operacion");
+                        alert.showAndWait();
+                        display.setText("");
+                    }
                 case 6: //10x
                     ans = 0f;
                     ans = Calculadora.pow(data, secondOperand); 
@@ -214,7 +225,7 @@ public class FXMLDocumentController implements Initializable {
                 case 7: //raiz
                     ans = 0f;
                     ans = Calculadora.raiz(data);
-                    if (ans>0){
+                    if (ans>=0){
                         display.setText(String.valueOf(ans));break;
                     }else {
                         Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -231,7 +242,7 @@ public class FXMLDocumentController implements Initializable {
                 case 9: //log
                     ans = 0f;
                     ans = Calculadora.log(data);
-                    if (ans>0){
+                    if (ans!=-1){
                         display.setText(String.valueOf(ans));break;
                     }else {
                         Alert alert = new Alert(Alert.AlertType.ERROR);

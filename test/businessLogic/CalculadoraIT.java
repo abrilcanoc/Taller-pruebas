@@ -192,7 +192,7 @@ public class CalculadoraIT {
     public void testRaizCero() {
         System.out.println("Raiz Cero");
         float a = 0;
-        float expResult = -1;
+        float expResult = 0;
         float result = Calculadora.raiz(a);
         assertEquals(expResult, result, 0.0);
         
@@ -397,6 +397,226 @@ public class CalculadoraIT {
         float result = Calculadora.multiply(a, b);        
         assertEquals(expResult, result,0.0);
     }       
+     //_______________________________________________________
+    @Test
+    public void testLogByOne(){
+        System.out.println("Logaritmo de 1");
+        float a = 1;
+        float expResult = 0;
+        float result = Calculadora.log(a);
+        assertEquals(expResult,result,0.0);
+    }
+    @Test
+    public  void testMultytOne(){
+        System.out.println("Multiplicar por 1");
+        float a = 4;
+        float b = 1;
+        float expResult = 4;        
+        float result = Calculadora.multiply(a, b);        
+        assertEquals(expResult, result,0.0);
+    }
+    @Test
+    public  void testFacByOne(){
+        System.out.println("Factorial de uno");
+        float a = 1F;
+        float expResult = 1F;
+        float result = Calculadora.fac(a);
+        assertEquals(expResult, result,0.0);                
+    }
+    @Test
+    public  void testFacByNumber(){
+        System.out.println("Factorial de un numero");
+        float a = 8F;
+        float expResult = 40320F;
+        float result = Calculadora.fac(a);
+        assertEquals(expResult, result,0.0);                
+    }
+    @Test
+    public  void testDivideByOne(){
+        System.out.println("Dividir por un uno");
+        float a=5;
+        float b=1F;
+        float expResult = 5;
+        float result = Calculadora.div(a, b);
+        assertEquals(expResult, result,0.0);
+    }
+    @Test
+    public  void testDivideByMinusOne(){
+        System.out.println("Dividir por menos uno");
+        float a=5;
+        float b=-1F;
+        float expResult = -5;
+        float result = Calculadora.div(a, b);
+        assertEquals(expResult, result,0.0);
+    }
+    @Test
+    public  void testAddZero(){
+        System.out.println("Sumar 0 a 48");
+        float a = 48;
+        float b = 0;
+        float expResult = 48F;        
+        float result = Calculadora.add(a, b);
+        assertEquals(expResult, result,0.0);
+    }
+    @Test
+    public void testPowNegativeNumber() {
+        System.out.println("Potencia número negativo");
+        float a = 10F;
+        float b = -3;
+        float expResult = 0.001F;
+        float result = Calculadora.pow(a, b);
+        assertEquals(expResult, result, 0.0);
+        
+    }
+    @Test
+    public void testlPowDecimal() {
+        System.out.println("Potencia de un decimal");
+        float a = 10F;
+        float b = 0.5F;
+        float expResult = 3.1622777F;
+        float result = Calculadora.pow(a, b);
+        assertEquals(expResult, result, 0.0);
+        
+    }
+    @Test
+    public void testlPowNegativeDecimal() {
+        System.out.println("Potencia de un decimal negativo");
+        float a = 10F;
+        float b = -0.5F;
+        float expResult = 0.31622776F;
+        float result = Calculadora.pow(a, b);
+        assertEquals(expResult, result, 0.0);
+        
+    }
+    @Test
+    public void testlPowOne() {
+        System.out.println("Potencia de 1");
+        float a = 10F;
+        float b = 1F;
+        float expResult = 10F;
+        float result = Calculadora.pow(a, b);
+        assertEquals(expResult, result, 0.0);
+        
+    }
+    public void testlPowZero() {
+        System.out.println("Potencia de 0");
+        float a = 10F;
+        float b = 0F;
+        float expResult = 1F;
+        float result = Calculadora.pow(a, b);
+        assertEquals(expResult, result, 0.0);
+        
+    }
+    @Test
+    public void testRaizDecimal() {
+        System.out.println("Raiz de un decimal positivo");
+        float a = 0.8F;
+        float expResult = 0.8944272F;
+        float result = Calculadora.raiz(a);
+        assertEquals(expResult, result, 0.0);
+        
+    }
+    @Test
+    public void testRaizNehativeDecimal() {
+        System.out.println("Raiz de un decimal negativo");
+        float a = -0.8F;
+        float expResult = -1;
+        float result = Calculadora.raiz(a);
+        assertEquals(expResult, result, 0.0);
+        
+    }
+    @Test
+    public void testModDecimal() {
+        System.out.println("Modulo con un decimal");
+        float a = 10F;//-
+        float b = 0.5F;
+        float expResult = 0F;
+        float result = Calculadora.mod(a, b);//-
+        assertEquals(expResult, result, 0.0);
+        
+    }
+    @Test
+    public void testModTwoDecimals() {
+        System.out.println("Modulo con dos decimales");
+        float a = 0.7F;
+        float b = 0.3F;
+        float expResult = 0.099999964F;
+        float result = Calculadora.mod(a, b);//-
+        assertEquals(expResult, result, 0.0);
+        
+    }
+    @Test
+    public void testModOne() {
+        System.out.println("Modulo con 1");
+        float a = 10F;
+        float b = 1F;
+        float expResult = 0F;
+        float result = Calculadora.mod(a, b);//-
+        assertEquals(expResult, result, 0.0);
+        
+    }
+    @Test
+    public void testModZero() {
+        System.out.println("Modulo A entero B 0");
+        float a = 10F;
+        float b = 0F;
+        float expResult = -1;
+        float result = Calculadora.mod(a, b);//-
+        if(Float.isNaN(result)) result=-1;
+        assertEquals(expResult, result, 0.0);
+        
+    }
+    @Test
+    public void testSubstractZero() {
+        System.out.println("Restar 0");
+        float a = 15;
+        float b = 0F;
+        float expResult = 15F;
+        float result = Calculadora.substract(a, b);
+        assertEquals(expResult, result, 0.0);
+        
+    }
+    @Test
+    public void testSubstractA() {
+        System.out.println("Restar A positvo B Negativo ");
+        float a = 10;
+        float b = -10F;
+        float expResult = 20F;
+        float result = Calculadora.substract(a, b);
+        assertEquals(expResult, result, 0.0);
+        
+    }
+    @Test
+    public void testSubstractB() {
+        System.out.println("Restar A Negativo B Positivo ");
+        float a = -10F;
+        float b = 10F;
+        float expResult = -20F;
+        float result = Calculadora.substract(a, b);
+        assertEquals(expResult, result, 0.0);
+        
+    }
+    @Test
+    public void testSubstractC() {
+        System.out.println("Restar dos enteros negativos ");
+        float a = -10F;
+        float b = -10F;
+        float expResult = 0;
+        float result = Calculadora.substract(a, b);
+        assertEquals(expResult, result, 0.0);
+        
+    }
+    @Test
+    public void testSubstractD() {
+        System.out.println("Restar A entero B decimal ");
+        float a = 10F;
+        float b = 0.5F;
+        float expResult = 9.5F;
+        float result = Calculadora.substract(a, b);
+        assertEquals(expResult, result, 0.0);
+        
+    }
+    
     
     /*
     

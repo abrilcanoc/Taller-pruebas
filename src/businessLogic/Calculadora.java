@@ -50,7 +50,7 @@ public class Calculadora {
     }
     public static float raiz(float a)
     {   
-        if (a>0)
+        if (a>=0)
         return (float)Math.sqrt(a);
         else
         return -1;
